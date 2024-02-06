@@ -1,38 +1,24 @@
 import FullCalendar from "@fullcalendar/react";
-import listWeek from "@fullcalendar/list";
-import dayGrid from "@fullcalendar/daygrid";
-import timeGrid from "@fullcalendar/timegrid";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import timeGridPlugin from "@fullcalendar/timegrid";
 
 export const FullCallendar = () => {
   return (
     <>
       <FullCalendar
-        plugins={[timeGrid]}
-        initialView={"timeGridWeek"}
-        // weekends={false}
+        plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+        initialView={"dayGridYear"}
+        headerToolbar={{
+          start: "today prev,next",
+          center: "title",
+          end: "dayGridMonth,timeGridWeek,timeGridDay",
+        }}
         events={[
           { title: "event 1", date: "2024-02-08" },
           { title: "event 2", date: "2024-02-09" },
         ]}
       />
-      {/*  <FullCalendar*/}
-      {/*  plugins={[listWeek]}*/}
-      {/*  initialView={"listWeek"}*/}
-      {/*  // weekends={false}*/}
-      {/*  events={[*/}
-      {/*    { title: "event 1", date: "2024-02-08" },*/}
-      {/*    { title: "event 2", date: "2024-02-09" },*/}
-      {/*  ]}*/}
-      {/*/>*/}
-      {/*<FullCalendar*/}
-      {/*  plugins={[dayGrid]}*/}
-      {/*  initialView={"dayGridMonth"}*/}
-      {/*  // weekends={false}*/}
-      {/*  events={[*/}
-      {/*    { title: "event 1", date: "2024-02-08" },*/}
-      {/*    { title: "event 2", date: "2024-02-09" },*/}
-      {/*  ]}*/}
-      {/*/>*/}
     </>
   );
 };
